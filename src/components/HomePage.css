@@ -1,0 +1,43 @@
+.homepage-container {
+    min-height: 100vh;
+    padding: 2rem;
+  }
+  
+  .content-wrapper {
+    max-width: 72rem; /* equivalent to max-w-6xl */
+    margin: 0 auto;
+  }
+  
+  .page-title {
+    font-size: 2.25rem; /* equivalent to text-4xl */
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: #fff; /* White color for main title */
+  }
+  
+  .grid-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .section-card {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+  
+  .section-title {
+    font-size: 1.5rem; /* equivalent to text-2xl */
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #000; /* Black color for section titles */
+  }
+  
+  /* Responsive Design */
+  @media (min-width: 768px) {
+    .grid-layout {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
