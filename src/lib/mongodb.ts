@@ -11,10 +11,15 @@ interface Connection {
   promise: Promise<typeof mongoose> | null;
 }
 
-let cached: Connection = (global as any).mongoose;
+// Define a type for the global object with mongoose property
+declare global {
+  var mongoose: { conn: null | typeof mongoose; promise: null | Promise<typeof mongoose> } | undefined;
+}
+
+let cached: Connection = (global.mongoose as Connection) || { conn: null, promise: null };
 
 if (!cached) {
-  cached = (global as any).mongoose = { conn: null, promise: null };
+  cached = global.mongoose = { conn: null, promise: null };
 }
 
 async function dbConnect() {
@@ -42,4 +47,4 @@ async function dbConnect() {
   return cached.conn;
 }
 
-export default dbConnect; 
+export default dbConnect;
