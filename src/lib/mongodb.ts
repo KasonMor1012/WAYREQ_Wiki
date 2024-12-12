@@ -13,10 +13,10 @@ interface Connection {
 
 // Define a type for the global object with mongoose property
 declare global {
-  var mongoose: Connection | undefined;
+  let mongoose: Connection | undefined;
 }
 
-let cached: Connection = global.mongoose || { conn: null, promise: null };
+const cached: Connection = global.mongoose || { conn: null, promise: null };
 
 async function dbConnect() {
   if (cached.conn) {
